@@ -1,0 +1,24 @@
+{
+	"port": 8000,
+	"weather": {
+		"token": "",
+		"city": "2988507"
+	},
+	"beer": {
+		"token": "",
+		"url": "http://api.brewerydb.com/v2/?key="
+	},
+	"beer": {
+		"token": "",
+		"url": "http://api.brewerydb.com/v2/?key="
+	},
+	"train": {
+		"token": "",
+		"url": "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:",
+		"stop_id": "87686006",
+		"directions": [
+			"Goussainville (Goussainville)"
+			,"Melun (Melun)"
+		]
+	}
+}

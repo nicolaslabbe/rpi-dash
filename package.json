@@ -1,0 +1,29 @@
+{
+  "name": "rpi-dash",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "node ./tasks/nodemon.js",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaslabbe/rpi-dash.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolaslabbe/rpi-dash/issues"
+  },
+  "homepage": "https://github.com/nicolaslabbe/rpi-dash#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "^2.17.1",
+    "nodemon": "^1.11.0",
+    "watch": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2"
+  }
+}
