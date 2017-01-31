@@ -3,6 +3,8 @@ import {Api} from '../classes'
 
 let satellite = new Api()
 
+satellite.id = 'pollution'
+
 satellite.get = function () {
 	const p = new Promise((resolve, reject) => {
 		resolve({

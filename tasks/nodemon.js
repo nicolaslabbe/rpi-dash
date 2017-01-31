@@ -2,11 +2,13 @@ var nodemon = require('nodemon');
 var watch = require('watch');
 var fs = require('fs');
 
+var basePath = __dirname + '/../src/server/'
+
 // NODE_ENV=development nodemon --exec npm run babel-app src/app.js --kill-others
 // ROOT=/path/to/my/abesite node src/tasks/nodemon.js
 
 nodemon({
-  script: __dirname + '/../server/index.js',
+  script: basePath + 'index.js',
   options: {
     exec: __dirname + '/../node_modules/.bin/babel-node --presets es2015'
   },

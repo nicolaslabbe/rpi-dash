@@ -2,6 +2,9 @@ import http from 'http'
 import https from 'https'
 import querystring from 'querystring'
 
+import config from '../config'
+import {firebaseHelper} from '../classes'
+
 class Api {
 
 	constructor() {
@@ -77,6 +80,10 @@ class Api {
 		});
 
 		return p
+	}
+
+	save (obj) {
+		firebaseHelper.set(`${this.id}/${config.firebase.userId}`, obj)
 	}
 }
 

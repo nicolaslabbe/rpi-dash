@@ -1,2 +1,9 @@
+# IDE
+*.sublime-project
+*.sublime-workspace
+
+# NODE
 node_modules
+
+# PROJECT
 server/config/index.json

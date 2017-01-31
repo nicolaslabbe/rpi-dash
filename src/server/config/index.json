@@ -1,0 +1,35 @@
+{
+	"port": 8000,
+	"weather": {
+		"token": "9f93317bfb185b09deac174c8934eafe",
+		"city": "2988507",
+		"pollution": "48.8135,1.2015"
+	},
+	"beer": {
+		"token": "7818abb15eaf6297cea63748cca202fe",
+		"url": "http://api.brewerydb.com/v2/?key="
+	},
+	"beer": {
+		"token": "7818abb15eaf6297cea63748cca202fe",
+		"url": "http://api.brewerydb.com/v2/?key="
+	},
+	"train": {
+		"token": "3170ad1e-07ac-48ac-8af3-98146da7024a",
+		"url": "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:",
+		"stop_id": "87686006",
+		"directions": [
+			"Goussainville (Goussainville)"
+			,"Melun (Melun)"
+		]
+	},
+	"firebase": {
+		"config": {
+			"apiKey": "AIzaSyAe22nNOiYrGeqd-0rN6aDEFKzAMIzU1ZI",
+			"authDomain": "rpi-dash.firebaseapp.com",
+			"databaseURL": "https://rpi-dash.firebaseio.com",
+			"storageBucket": "rpi-dash.appspot.com",
+			"messagingSenderId": "3721723310"
+		},
+		"userId": "tohQnRkCr1OzgBiEOtei4XGLj9e2"
+	}
+}

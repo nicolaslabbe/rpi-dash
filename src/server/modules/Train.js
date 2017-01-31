@@ -4,6 +4,8 @@ import {Api} from '../classes'
 
 let train = new Api()
 
+train.id = 'train'
+
 train.get = function (token, stop_id, date = new Date(), max = 100) {
 	date = date.toISOString().replace(/-|:/g, '').split('.')[0];
 	return this.call(
@@ -24,7 +26,6 @@ train.parse = function (obj, directions = null) {
 					direction: departure.display_informations.direction
 					,time: {
 						remaining: currentDate.to(date)
-						,arrival: date
 						,timestamp: date.valueOf()
 					}
 				})

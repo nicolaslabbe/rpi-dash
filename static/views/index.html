@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+		
+		<title>The HTML5 Herald</title>
+		<meta name="description" content="The HTML5 Herald">
+		<meta name="author" content="SitePoint">
+		
+		<link rel="stylesheet" href="/css/styles.css?v=1.0">
+		<link rel="stylesheet" href="/css/weather-icons-wind.min.css?v=1.0">
+		<link rel="stylesheet" href="/css/weather-icons.min.css?v=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	</head>
+
+	<body>
+
+		<div class="pos center center">
+			<div class="big">Hello</div>
+		</div>
+
+		<div class="pos top right">
+			<div class="">{{weekday}}</div>
+			<div class="big">{{hours}}</div>
+
+			<div class="wi big" aria-hidden="true" data-weather-icon="true"></div>
+			<div class="normal" data-weather-icon="true" data-weather-temp="true"></div>
+		</div>
+
+		<div class="pos bottom right">
+			<ul data-train-time="true">
+			</ul>
+		</div>
+		
+		{{#if config.firebase}}
+		<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
+		<script>
+		var firebaseConfig = {{{config.firebase}}};
+		</script>
+		{{/if}}
+		<script src="js/scripts.js"></script>
+	</body>
+</html>

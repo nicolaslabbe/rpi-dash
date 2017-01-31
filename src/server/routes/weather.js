@@ -3,7 +3,9 @@ import {Weather} from '../modules'
 let route = (req, res) => {
 	Weather.get()
 	.then((result) => {
-		res.send(Weather.parse(result))
+		var values = Weather.parse(result)
+		// Weather.save(values)
+		res.send(values)
 	},
 	(result) => {
 		res.send(result)
