@@ -22,11 +22,12 @@ nodemon({
     'NODE_ENV': process.env.NODE_ENV || 'prod'
   },
   ignore: [
+    "server/scripts/*",
     "docs/*",
-    "dist/*"
+    "static/*"
   ],
   watch: [
-	 'server/**/*.*'
+	 'src/server/**/*.js'
   ],
   stdin: true,
   runOnChangeOnly: false,

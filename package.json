@@ -5,8 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:front": "babelify --presets [ es2015 ] src/front/scripts/index.js -o static/js/scripts.js",
-    "watch": "parallelshell './node_modules/.bin/watchify -v -t [ babelify --presets [ es2015 ] ] src/front/scripts/index.js -o static/js/scripts.js'",
-    "dev": "node ./tasks/nodemon.js & npm run watch --kill-others",
+    "watch:sass": "./node_modules/.bin/watch 'npm run sass' ./src/front/sass",
+    "sass": "node ./tasks/sass.js",
+    "watch": "parallelshell './node_modules/.bin/watchify -v -t [ babelify --presets [ es2015 ] ] src/front/scripts/index.js -o static/js/scripts.js' 'npm run watch:sass'",
+    "dev": "node ./tasks/nodemon.js && npm run watch --kill-others",
     "start": "nodemon"
   },
   "repository": {
@@ -20,6 +22,8 @@
   },
   "homepage": "https://github.com/nicolaslabbe/rpi-dash#readme",
   "dependencies": {
+    "babelify": "^7.3.0",
+    "cli-color": "^1.1.0",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "firebase": "^3.6.7",
@@ -27,6 +31,7 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.17.1",
     "node-cron": "^1.1.2",
+    "node-sass": "^4.5.0",
     "nodemon": "^1.11.0",
     "parallelshell": "^2.0.0",
     "serve-static": "^1.11.2",

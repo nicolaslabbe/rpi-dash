@@ -16,13 +16,20 @@ train.get = function (token, stop_id, date = new Date(), max = 100) {
 }
 
 train.parse = function (obj, directions = null) {
-	var json = []
+	var json = {
+		departures: [],
+		links: obj.result.links,
+		disruptions: obj.result.disruptions,
+		notes: obj.result.notes,
+		feed_publishers: obj.result.feed_publishers,
+		exceptions: obj.result.exceptions
+	}
 	let currentDate = moment()
 	if(obj.result != null && obj.result.departures != null) {
 		Array.prototype.forEach.call(obj.result.departures, (departure) => {
 			let date = moment(departure.stop_date_time.departure_date_time);
 			if(directions == null || directions.indexOf(departure.display_informations.direction) > -1) {
-				json.push({
+				json.departures.push({
 					direction: departure.display_informations.direction
 					,time: {
 						remaining: currentDate.to(date)
@@ -34,6 +41,7 @@ train.parse = function (obj, directions = null) {
 	}else {
 		json = obj.result
 	}
+
 
 	return json
 }

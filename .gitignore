@@ -7,3 +7,5 @@ node_modules
 
 # PROJECT
 server/config/index.json
+static/js/
+static/css/

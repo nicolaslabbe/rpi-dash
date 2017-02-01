@@ -1,0 +1,174 @@
+@import 'modules/_weather-icons.min.scss';
+@import 'modules/_weather-icons-wind.min.scss';
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html,
+body {
+	background: #000;
+	color: #fff;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 12px;
+	width: 100%;
+	height: 100%;
+}
+
+.speak {
+	text-align: center;
+}
+
+.pos {
+	position: absolute;
+	display: inline-block;
+}
+
+.top {
+	top: 30px;
+}
+
+.bottom {
+	bottom: 30px;
+}
+
+.right {
+	right: 50px;
+	text-align: right;
+}
+
+.vcenter {
+	top: 50%;
+}
+
+.hcenter {
+	left: 50%;
+}
+
+.big {
+	font-size: 4rem;
+}
+
+.normal {
+	text-align: right;
+	font-size: 1rem;
+}
+
+.weather {
+	font-size: 10rem;
+}
+
+.degree {
+	font-size: 1.7rem;
+}
+
+.day-wrapper {
+	font-size: 1.4rem;
+}
+
+.time-wrapper {
+	font-size: 0;
+}
+
+.time-wrapper span {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+.time-wrapper span { font-size: 4rem; }
+.time-wrapper .hours { font-size: 4rem; }
+.time-wrapper .minutes { font-size: 4rem; }
+.time-wrapper .seconds { font-size: 1.2rem; }
+.time-wrapper .meridiem { font-size: 4rem; }
+.time-wrapper .hours-to-minutes { font-size: 2rem; }
+.time-wrapper .minutes-to-secondes { font-size: 1.2rem; }
+
+.info-wrapper {
+	height: 50%;
+    width: 80%;
+    transform: translate(-50%, -30%);
+}
+
+.info-wrapper .big {
+	font-size: 6rem;
+}
+
+.news {
+	margin-top: 5%;
+    text-align: center;
+}
+.news li {
+	margin: 5px 0px 5px 0px;
+	line-height: 1.7rem;
+}
+
+.news li .bold {
+	font-weight: bold;
+}
+
+.news li:nth-child(1){ font-size: 1.8rem; line-height: 2.2rem; }
+.news li:nth-child(2){ font-size: 1.6rem; line-height: 1.9rem; opacity: .9; }
+.news li:nth-child(3){ font-size: 1.4rem; line-height: 1.8rem; opacity: .75; }
+.news li:nth-child(4){ font-size: 1.3rem; line-height: 1.6rem; opacity: .6; }
+.news li:nth-child(5){ font-size: 1.2rem; line-height: 1.5rem; opacity: .55; }
+.news li:nth-child(6){ font-size: 1.1rem; line-height: 1.4rem; opacity: .4; }
+
+.white {
+	color: #fff;
+}
+
+.gray {
+	color: #a7a7a7;
+}
+
+.transport li {
+	font-size: 1.2rem;
+}

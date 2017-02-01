@@ -1,19 +1,24 @@
 {
 	"port": 8000,
 	"weather": {
+		"schedule": "* * * * *",
 		"token": "9f93317bfb185b09deac174c8934eafe",
 		"city": "2988507",
 		"pollution": "48.8135,1.2015"
 	},
-	"beer": {
-		"token": "7818abb15eaf6297cea63748cca202fe",
-		"url": "http://api.brewerydb.com/v2/?key="
+	"news": {
+		"schedule": "*/5 * * * *",
+		"token": "3929f980879546918bb2361793aca0b9",
+		"sort": "latest",
+		"source": "time"
 	},
 	"beer": {
+		"schedule": "* * * * *",
 		"token": "7818abb15eaf6297cea63748cca202fe",
 		"url": "http://api.brewerydb.com/v2/?key="
 	},
 	"train": {
+		"schedule": "* * * * *",
 		"token": "3170ad1e-07ac-48ac-8af3-98146da7024a",
 		"url": "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:",
 		"stop_id": "87686006",
@@ -21,6 +26,11 @@
 			"Goussainville (Goussainville)"
 			,"Melun (Melun)"
 		]
+	},
+	"traffic": {
+		"schedule": "* * * * *",
+		"token": "3170ad1e-07ac-48ac-8af3-98146da7024a",
+		"url": "https://api.sncf.com/v1/coverage/fr-idf/networks/network:RER/traffic_reports"
 	},
 	"firebase": {
 		"config": {

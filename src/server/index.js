@@ -12,6 +12,7 @@ import {
 	,satelliteRoute
 	,trainRoute
 	,dashRoute
+	,newsRoute
 } from './routes'
 
 import {
@@ -35,6 +36,7 @@ app.get('/weather', weatherRoute)
 app.get('/pollution', pollutionRoute)
 app.get('/satellite', satelliteRoute)
 app.get('/train', trainRoute)
+app.get('/news', newsRoute)
 app.get('/', dashRoute)
 
 app.listen(config.port, () => {

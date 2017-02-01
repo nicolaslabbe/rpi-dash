@@ -16,19 +16,32 @@
 
 	<body>
 
-		<div class="pos center center">
-			<div class="big">Hello</div>
+		<div class="pos vcenter hcenter info-wrapper">
+			<div class="big speak">Hello...</div>
+			<ul class="news" data-news="true"></ul>
 		</div>
 
 		<div class="pos top right">
-			<div class="">{{weekday}}</div>
-			<div class="big">{{hours}}</div>
+			<div class="day-wrapper" data-day="true">{{weekday}}</div>
+			<div class="big time-wrapper">
+				<span class="hours" data-hours="true">{{hours}}</span>
+				<span class="hours-to-minutes">:</span>
+				<span class="minutes" data-minutes="true">{{minutes}}</span>
+				<span class="minutes-to-secondes">:</span>
+				<span class="seconds" data-seconds="true">{{seconds}}</span>
+				<span class="meridiem" data-meridiem="true">{{meridiem}}</span>
+			</div>
 
-			<div class="wi big" aria-hidden="true" data-weather-icon="true"></div>
-			<div class="normal" data-weather-icon="true" data-weather-temp="true"></div>
+			<div class="weather">
+				<div class="wi" data-weather-icon="true"></div>
+			</div>
+			<div class="degree">
+				<span data-weather-icon="true" data-weather-temp="true"></span>
+				<span>°C</span>
+			</div>
 		</div>
 
-		<div class="pos bottom right">
+		<div class="pos bottom right transport">
 			<ul data-train-time="true">
 			</ul>
 		</div>
