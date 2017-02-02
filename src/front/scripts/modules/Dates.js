@@ -9,6 +9,9 @@ class Time {
 		this.seconds = document.querySelector('[data-seconds=true]')
 		this.meridiem = document.querySelector('[data-meridiem=true]')
 		this.day = document.querySelector('[data-day=true]')
+	}
+
+	init() {
 		this.bindEvents()
 	}
 

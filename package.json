@@ -8,7 +8,7 @@
     "watch:sass": "./node_modules/.bin/watch 'npm run sass' ./src/front/sass",
     "sass": "node ./tasks/sass.js",
     "watch": "parallelshell './node_modules/.bin/watchify -v -t [ babelify --presets [ es2015 ] ] src/front/scripts/index.js -o static/js/scripts.js' 'npm run watch:sass'",
-    "dev": "node ./tasks/nodemon.js && npm run watch --kill-others",
+    "dev": "node ./tasks/nodemon.js & npm run watch --kill-others",
     "start": "nodemon"
   },
   "repository": {

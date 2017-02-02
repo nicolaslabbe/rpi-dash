@@ -2,6 +2,7 @@ import express from 'express'
 import exphbs from 'express-handlebars'
 import Handlebars from 'handlebars'
 import path from 'path'
+import clc from 'cli-color'
 
 import config from './config'
 import {firebaseHelper} from './classes/'
@@ -18,8 +19,6 @@ import {
 import {
 	Update
 } from './modules'
-
-Update.init()
 
 var app = express()
 var port = 8000
@@ -40,5 +39,10 @@ app.get('/news', newsRoute)
 app.get('/', dashRoute)
 
 app.listen(config.port, () => {
-  console.log(`http://localhost:${config.port}/`)
+  console.log(`Rpi-dash running at`, clc.cyan(`http://localhost:${config.port}/`))
+})
+
+Update.init()
+.then(() => {
+	console.log(clc.cyan(`Api update finished`))
 })

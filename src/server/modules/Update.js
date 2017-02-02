@@ -9,10 +9,6 @@ import News from './News'
 class Update {
 
 	constructor() {
-		this.updatePollution()
-		this.updateTrain()
-		this.updateWeather()
-		this.updateNews()
 	}
 
 	updatePollution() {
@@ -21,7 +17,6 @@ class Update {
 			Pollution.save(Pollution.parse(result))
 		},
 		(result) => {
-			console.log('cannot update pollution')
 		})
 	}
 
@@ -31,7 +26,6 @@ class Update {
 			Train.save(Train.parse(obj, config.train.directions))
 		},
 		(result) => {
-			console.log('cannot update train')
 		})
 	}
 
@@ -41,7 +35,6 @@ class Update {
 			Weather.save(Weather.parse(result))
 		},
 		(result) => {
-			console.log('cannot update train')
 		})
 	}
 
@@ -51,23 +44,31 @@ class Update {
 			News.save(News.parse(result))
 		},
 		(result) => {
-			console.log('cannot update train')
 		})
 	}
 
 	init() {
-		cron.schedule(config.train.schedule, () => {
-			this.updateTrain()
+		var p = new Promise((resolve) => {
 			this.updatePollution()
-		})
-
-		cron.schedule(config.weather.schedule, () => {
+			this.updateTrain()
 			this.updateWeather()
+			this.updateNews()
+
+			cron.schedule(config.train.schedule, () => {
+				this.updateTrain()
+				this.updatePollution()
+			})
+
+			cron.schedule(config.weather.schedule, () => {
+				this.updateWeather()
+			})
+
+			cron.schedule(config.news.schedule, () => {
+				this.updateNews()
+			})
 		})
 
-		cron.schedule(config.news.schedule, () => {
-			this.updateNews()
-		})
+		return p
 	}
 }
 

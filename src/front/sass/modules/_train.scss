@@ -1,0 +1,54 @@
+.time-wrapper {
+	font-size: 0;
+	
+	span {
+		padding: 0px;
+		margin: 0px;
+		display: inline;
+		font-size: 4rem;
+		text-transform: uppercase;
+	}
+
+	.hours { font-size: 4rem; }
+	.minutes { font-size: 4rem; }
+	.seconds { font-size: 1.2rem; }
+	.meridiem { font-size: 4rem; }
+	.hours-to-minutes { font-size: 2rem; }
+	.minutes-to-secondes { font-size: 1.2rem; }
+}
+
+.transport {
+	bottom: 30px;
+	right: 50px;
+	text-align: right;
+
+	li {
+		font-size: 1.2rem;
+	}
+
+	.station {
+		text-transform: uppercase;
+		font-size: 1.5rem;
+		line-height: 2.5rem;
+	}
+}
+
+@media (max-width:780px) {
+	.transport {
+		bottom: inherit;
+		right: inherit;
+		text-align: center;
+		width: 90%;
+		padding: 0px;
+		margin: 5% 5% 0px 5%;
+
+		.station {
+			font-size: 2.2rem;
+			line-height: 3.2rem;
+		}
+
+		li {
+			font-size: 1.8rem;
+		}
+	}
+}

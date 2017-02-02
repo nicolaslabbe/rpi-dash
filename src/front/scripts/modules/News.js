@@ -3,6 +3,9 @@ class News {
 	constructor(firebase) {
 		this.db = firebase.database().ref('news/' + firebaseConfig.userId);
 		this.wrapper = document.querySelector('[data-news=true]')
+	}
+
+	init() {
 		this.bindEvents()
 	}
 
@@ -10,7 +13,7 @@ class News {
 		this.db.on('value', (snapshot) => {
 			this.update(snapshot.val())
 		}, (errorObject) => {
-		  // console.log("The read failed: " + errorObject.code);
+		  console.log("The read failed: " + errorObject.code);
 		});
 
 		this.db.on("child_changed", (snapshot) => {

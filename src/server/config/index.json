@@ -21,7 +21,7 @@
 		"schedule": "* * * * *",
 		"token": "3170ad1e-07ac-48ac-8af3-98146da7024a",
 		"url": "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:",
-		"stop_id": "87686006",
+		"stop_id": ["87686006", "87682153"],
 		"directions": [
 			"Goussainville (Goussainville)"
 			,"Melun (Melun)"

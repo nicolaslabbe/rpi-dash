@@ -2,9 +2,12 @@ class Weather {
 
 	constructor(firebase) {
 		this.db = firebase.database().ref('weather/' + firebaseConfig.userId);
-		this.bindEvents()
 		this.icon = document.querySelector('[data-weather-icon=true]')
 		this.temp = document.querySelector('[data-weather-temp=true]')
+	}
+
+	init() {
+		this.bindEvents()
 	}
 
 	bindEvents() {

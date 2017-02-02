@@ -1,0 +1,31 @@
+.today {
+	top: 30px;
+	right: 50px;
+	text-align: right;
+}
+
+.weather {
+    font-size: 9rem;
+    line-height: 14rem;
+}
+
+.degree {
+	font-size: 1.7rem;
+}
+
+.day-wrapper {
+	font-size: 1.4rem;
+}
+
+@media (max-width:780px) {
+	.today {
+		top: inherit;
+		right: inherit;
+		height: auto;
+		width: 90%;
+		transform: none;
+		padding: 0px;
+		margin: 5% 5% 0px 5%;
+		text-align: center;
+	}
+}

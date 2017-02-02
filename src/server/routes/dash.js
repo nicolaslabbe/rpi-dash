@@ -8,16 +8,9 @@ let route = (req, res) => {
 	var index = process.cwd() + '/static/views/index.html'
 	var html = fs.readFileSync(index, 'utf8')
 
-	var date = moment()
-	var hours = date.hour()
-	var minutes = date.minutes()
-	var weekday = date.format("dddd, MMMM Do YYYY");
-
 	var template = Handlebars.compile(html, {noEscape: true})
 	var tmp = template({
-		hours: `${hours}:${minutes}`
-		,weekday: `${weekday}`
-		,config: {
+		config: {
 			firebase: JSON.stringify(config.firebase)
 		}
 	})

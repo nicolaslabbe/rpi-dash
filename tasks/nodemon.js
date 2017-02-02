@@ -1,11 +1,9 @@
 var nodemon = require('nodemon');
 var watch = require('watch');
 var fs = require('fs');
+var clc = require('cli-color');
 
 var basePath = __dirname + '/../src/server/'
-
-// NODE_ENV=development nodemon --exec npm run babel-app src/app.js --kill-others
-// ROOT=/path/to/my/abesite node src/tasks/nodemon.js
 
 nodemon({
   script: basePath + 'index.js',
@@ -40,9 +38,8 @@ nodemon({
 
 nodemon.on('start', function () {
 }).on('quit', function () {
-  console.log('Kill process nodemon');
+  console.log(clc.green('Kill process nodemon'))
   process.exit();
 }).on('restart', function (files) {
-  console.log('------------------------------------------------------------');
-  console.log('App restarted due to: ', files[0]);
+  console.log(clc.green('App restarted due to: '), files[0])
 });

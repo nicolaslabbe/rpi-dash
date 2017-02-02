@@ -7,29 +7,21 @@
 		<title>The HTML5 Herald</title>
 		<meta name="description" content="The HTML5 Herald">
 		<meta name="author" content="SitePoint">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1, shrink-to-fit=no">
 		
 		<link rel="stylesheet" href="/css/styles.css?v=1.0">
-		<link rel="stylesheet" href="/css/weather-icons-wind.min.css?v=1.0">
-		<link rel="stylesheet" href="/css/weather-icons.min.css?v=1.0">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 	</head>
 
 	<body>
-
-		<div class="pos vcenter hcenter info-wrapper">
-			<div class="big speak">Hello...</div>
-			<ul class="news" data-news="true"></ul>
-		</div>
-
-		<div class="pos top right">
-			<div class="day-wrapper" data-day="true">{{weekday}}</div>
+		<div class="pos today">
+			<div class="day-wrapper" data-day="true"></div>
 			<div class="big time-wrapper">
-				<span class="hours" data-hours="true">{{hours}}</span>
+				<span class="hours" data-hours="true"></span>
 				<span class="hours-to-minutes">:</span>
-				<span class="minutes" data-minutes="true">{{minutes}}</span>
+				<span class="minutes" data-minutes="true"></span>
 				<span class="minutes-to-secondes">:</span>
-				<span class="seconds" data-seconds="true">{{seconds}}</span>
-				<span class="meridiem" data-meridiem="true">{{meridiem}}</span>
+				<span class="seconds" data-seconds="true"></span>
+				<span class="meridiem" data-meridiem="true"></span>
 			</div>
 
 			<div class="weather">
@@ -41,17 +33,27 @@
 			</div>
 		</div>
 
-		<div class="pos bottom right transport">
+		<div class="pos info-wrapper">
+			<div class="big speak">Hello...</div>
+			<ul class="news" data-news="true"></ul>
+		</div>
+
+		<div class="pos transport">
 			<ul data-train-time="true">
 			</ul>
 		</div>
+
+		<div class="loading" data-loading-wrapper="true">
+			<span class="msg">Loading...</span>
+		</div>
 		
+		<script src="js/scripts.js"></script>
 		{{#if config.firebase}}
 		<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
 		<script>
 		var firebaseConfig = {{{config.firebase}}};
 		</script>
 		{{/if}}
-		<script src="js/scripts.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" async="true" rel="stylesheet">
 	</body>
 </html>
