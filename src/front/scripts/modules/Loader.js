@@ -1,6 +1,6 @@
 class Loader {
 
-	constructor(firebase) {
+	constructor() {
 		this.wrapper = document.querySelector('[data-loading-wrapper="true"]')
 	}
 

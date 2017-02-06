@@ -1,26 +1,14 @@
-.time-wrapper {
-	font-size: 0;
-	
-	span {
-		padding: 0px;
-		margin: 0px;
-		display: inline;
-		font-size: 4rem;
-		text-transform: uppercase;
-	}
-
-	.hours { font-size: 4rem; }
-	.minutes { font-size: 4rem; }
-	.seconds { font-size: 1.2rem; }
-	.meridiem { font-size: 4rem; }
-	.hours-to-minutes { font-size: 2rem; }
-	.minutes-to-secondes { font-size: 1.2rem; }
-}
-
 .transport {
 	bottom: 30px;
 	right: 50px;
 	text-align: right;
+
+	&.hidden {
+		display: none;
+	}
+	&.error {
+		opacity: 0.3;
+	}
 
 	li {
 		font-size: 1.2rem;

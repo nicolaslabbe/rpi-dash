@@ -1,23 +1,27 @@
 class News {
 
 	constructor(firebase) {
-		this.db = firebase.database().ref('news/' + firebaseConfig.userId);
-		this.wrapper = document.querySelector('[data-news=true]')
-	}
-
-	init() {
-		this.bindEvents()
+		if(firebase != null) {
+			this.db = firebase.database().ref('news/' + firebaseConfig.userId);
+			this.wrapper = document.querySelector('[data-news=true]')
+			this.start()
+			this.bindEvents()
+		}else {
+			this.error()
+		}
 	}
 
 	bindEvents() {
+		this.db.on("child_changed", (snapshot) => {
+			this.update(snapshot.val())
+		});
+	}
+
+	start() {
 		this.db.on('value', (snapshot) => {
 			this.update(snapshot.val())
 		}, (errorObject) => {
 		  console.log("The read failed: " + errorObject.code);
-		});
-
-		this.db.on("child_changed", (snapshot) => {
-			this.update(snapshot.val())
 		});
 	}
 
@@ -35,6 +39,12 @@ class News {
 			i++
 		})
 		this.wrapper.innerHTML = html
+	}
+
+	error() {
+		this.wrapper.classList.remove('hidden')
+		this.wrapper.classList.add('error')
+		this.wrapper.innerHTML = "No informations availiable"
 	}
 }
 

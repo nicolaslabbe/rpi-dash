@@ -1,12 +1,46 @@
+.time-wrapper {
+	font-size: 0;
+	
+	span {
+		padding: 0px;
+		margin: 0px;
+		display: inline;
+		font-size: 4rem;
+		text-transform: uppercase;
+	}
+
+	.hours { font-size: 4rem; }
+	.minutes { font-size: 4rem; }
+	.seconds { font-size: 1.2rem; }
+	.meridiem { font-size: 4rem; }
+	.hours-to-minutes { font-size: 2rem; }
+	.minutes-to-secondes { font-size: 1.2rem; }
+	
+	&.hidden {
+		display: none;
+	}
+	&.error {
+		opacity: 0.3;
+	}
+}
+
 .today {
 	top: 30px;
 	right: 50px;
 	text-align: right;
 }
 
-.weather {
-    font-size: 9rem;
-    line-height: 14rem;
+.weather-wrapper {
+	.weather {
+	    font-size: 9rem;
+	    line-height: 14rem;
+	}
+	&.hidden {
+		display: none;
+	}
+	&.error {
+		opacity: 0.3;
+	}
 }
 
 .degree {

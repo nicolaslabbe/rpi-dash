@@ -23,24 +23,26 @@
 				<span class="seconds" data-seconds="true"></span>
 				<span class="meridiem" data-meridiem="true"></span>
 			</div>
-
-			<div class="weather">
-				<div class="wi" data-weather-icon="true"></div>
-			</div>
-			<div class="degree">
-				<span data-weather-icon="true" data-weather-temp="true"></span>
-				<span>°C</span>
+			
+			<div class="weather-wrapper hidden" data-weather-wrapper="true">
+				<div class="weather">
+					<div class="wi" data-weather-icon="true"></div>
+				</div>
+				<div class="degree">
+					<span data-weather-icon="true" data-weather-temp="true"></span>
+					<span>°C</span>
+				</div>
 			</div>
 		</div>
 
 		<div class="pos info-wrapper">
-			<div class="big speak">Hello...</div>
+			<div class="big speak" data-info-msg="true">Hello...</div>
 			<ul class="news" data-news="true"></ul>
 		</div>
 
-		<div class="pos transport">
-			<ul data-train-time="true">
-			</ul>
+		<div class="pos transport" data-transport="true">
+			<div data-train-time="true">
+			</div>
 		</div>
 
 		<div class="loading" data-loading-wrapper="true">

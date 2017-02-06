@@ -20,14 +20,16 @@ nodemon({
     'NODE_ENV': process.env.NODE_ENV || 'prod'
   },
   ignore: [
-    "server/scripts/*",
-    "docs/*",
-    "static/*"
+    "docs/**",
+    "src/front/**",
+    "static/**",
+    "tasks***"
   ],
   watch: [
 	 'src/server/**/*.js'
   ],
   stdin: true,
+  ext: "js",
   runOnChangeOnly: false,
   verbose: true,
   // 'stdout' refers to the default behaviour of a required nodemon's child,

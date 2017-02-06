@@ -3,15 +3,12 @@ import cron from 'node-cron'
 
 class Time {
 
-	constructor(firebase) {
+	constructor() {
 		this.hours = document.querySelector('[data-hours=true]')
 		this.minutes = document.querySelector('[data-minutes=true]')
 		this.seconds = document.querySelector('[data-seconds=true]')
 		this.meridiem = document.querySelector('[data-meridiem=true]')
 		this.day = document.querySelector('[data-day=true]')
-	}
-
-	init() {
 		this.bindEvents()
 	}
 
