@@ -4,6 +4,7 @@
 
 # NODE
 node_modules
+npm-*.log
 
 # PROJECT
 config/index.json

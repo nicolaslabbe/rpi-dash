@@ -13,7 +13,7 @@
     "compile:api": "browserify ./src/api/index.js --exclude ./config/*.json -o dist/api/index.js --full-paths=false --node -t [ babelify --presets [ es2015 ] ]",
     "compile:server": "browserify ./src/server/index.js --exclude ./config/*.json -o dist/server/index.js --full-paths=false --node -t [ babelify --presets [ es2015 ] ]",
     "compile:front": "browserify -t [ babelify --presets [ es2015 ] ] ./src/front/scripts/index.js -o static/js/scripts.js",
-    "watch:sass": "./node_modules/.bin/watch 'node ./tasks/sass.js' ./src/front/sass",
+    "watch:sass": "watch 'node ./tasks/sass.js' ./src/front/sass",
     "watch:js": "./node_modules/.bin/watch 'npm run compile:front' ./src/front/scripts",
     "watch": "parallelshell 'npm run watch:js' 'npm run watch:sass'",
     "dev:server": "nodemon src/server/index.js & npm run watch",
@@ -22,7 +22,7 @@
     "build:front": "npm run green \"build:front\" && npm run compile:front && node ./tasks/sass.js",
     "build:back": "npm run green \"build:back\" && npm run mkdir && npm run compile:server && npm run compile:api",
     "build:prod": "npm run build:front && npm run build:back",
-    "start": "node dist/server/index.js && node dist/api/index.js"
+    "start": "NODE_ENV=production pm2 start dist/server/index.js -n rpid-server --watch && NODE_ENV=production pm2 start dist/api/index.js -n rpid-api --watch"
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "nodemon": "^1.11.0",
     "on": "^1.3.0",
     "parallelshell": "^2.0.0",
+    "pm2": "^2.4.0",
     "serve-static": "^1.11.2",
     "watch": "^1.0.1",
     "watchify": "^3.9.0"
