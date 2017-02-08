@@ -1,6 +1,7 @@
-import config from '../config'
 import moment from 'moment'
-import {Api} from '../classes'
+
+import config from 'config'
+import {Api} from '../../helper'
 
 let weather = new Api()
 
@@ -25,12 +26,16 @@ weather.parseSingle = function (item) {
 }
 
 weather.parse = function (obj) {
+	var date = moment()
 	var json = {
 		name: obj.result.city.name
-		,current: {}
+		,current: this.parseSingle(obj.result.list[0])
 		,hours: []
+		,updatedAt: {
+			timestamp: date.format('x'),
+			date: date.format('MMMM Do YYYY, h:mm:ss a')
+		}
 	}
-	json.current = this.parseSingle(obj.result.list[0])
 
 	Array.prototype.forEach.call(obj.result.list, (item) => {
 		json.hours.push(this.parseSingle(item))

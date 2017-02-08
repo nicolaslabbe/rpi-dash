@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "ignore": [
+    "docs/*",
+    "src/front/*",
+    "src/front/scripts/modules/*",
+    "static/*",
+    "tasks/*"
+  ],
+  "execMap": "babel-node --presets es2015,stage-2",
+  "execMap": {
+    "js": "babel-node --presets es2015,stage-2"
+  }
+}

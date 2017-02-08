@@ -1,13 +1,13 @@
 import moment from 'moment'
 
-class News {
+class Gmail {
 
 	constructor(firebase) {
 		this.visible = true
 		if(firebase != null) {
-			this.db = firebase.database().ref('news/' + firebaseConfig.userId);
-			this.wrapperMain = document.querySelector('[data-news-wrapper=true]')
-			this.wrapper = this.wrapperMain.querySelector('[data-news=true]')
+			this.db = firebase.database().ref('gmail/' + firebaseConfig.userId);
+			this.wrapperMain = document.querySelector('[data-gmail-wrapper=true]')
+			this.wrapper = this.wrapperMain.querySelector('[data-gmail=true]')
 			this.lastUpdateWrapper = this.wrapperMain.querySelector('[last-update="true"]')
 			this.start()
 			this.bindEvents()
@@ -32,13 +32,13 @@ class News {
 
 	update(val) {
 		var html = ""
-		var max = 6
+		var max = 10
 		var i = 0
 		Array.prototype.forEach.call(val.results, (t) => {
 			if(i < max) {
 				html += `<li>
-				<div class="white bold">${t.title}</div>
-				<div class="gray">${t.description}</div>
+				<div class="white bold">${t.from} - ${t.subject}</div>
+				<div class="gray">${t.snippet}</div>
 				</li>`
 			}
 			i++
@@ -71,4 +71,4 @@ class News {
 	}
 }
 
-export default News
+export default Gmail

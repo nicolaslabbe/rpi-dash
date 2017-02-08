@@ -3,33 +3,47 @@
 }
 
 .info-wrapper {
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	height: 50%;
     width: 80%;
     transform: translate(-50%, -30%);
 
+    .hidden {
+    	display: none;
+    }
+
     .big {
 		font-size: 6rem;
 	}
-}
 
-.news {
-	margin-top: 5%;
-    text-align: center;
-    li {
-		margin: 5px 0px 5px 0px;
-		line-height: 1.7rem;
+	.last-update {
+		text-align: center;
+		opacity: 0.5;
+		font-size: 1rem;
+		padding: 10px;
+	}
 
-		&:nth-child(1){ font-size: 1.8rem; line-height: 2.2rem; }
-		&:nth-child(2){ font-size: 1.6rem; line-height: 1.9rem; opacity: .9; }
-		&:nth-child(3){ font-size: 1.4rem; line-height: 1.8rem; opacity: .75; }
-		&:nth-child(4){ font-size: 1.3rem; line-height: 1.6rem; opacity: .6; }
-		&:nth-child(5){ font-size: 1.2rem; line-height: 1.5rem; opacity: .55; }
-		&:nth-child(6){ font-size: 1.1rem; line-height: 1.4rem; opacity: .4; }
+	.center {
+		margin-top: 5%;
+	    text-align: center;
+	    li {
+			margin: 5px 0px 5px 0px;
+			line-height: 1.7rem;
 
-		.bold {
-			font-weight: bold;
+			&:nth-child(1){ font-size: 1.8rem; line-height: 2.2rem; }
+			&:nth-child(2){ font-size: 1.6rem; line-height: 1.9rem; opacity: .9; }
+			&:nth-child(3){ font-size: 1.4rem; line-height: 1.8rem; opacity: .75; }
+			&:nth-child(4){ font-size: 1.3rem; line-height: 1.6rem; opacity: .6; }
+			&:nth-child(5){ font-size: 1.2rem; line-height: 1.5rem; opacity: .55; }
+			&:nth-child(6){ font-size: 1.1rem; line-height: 1.4rem; opacity: .4; }
+			&:nth-child(7){ font-size: 1.0rem; line-height: 1.3rem; opacity: .35; }
+			&:nth-child(8){ font-size: 0.9rem; line-height: 1.2rem; opacity: .3; }
+			&:nth-child(9){ font-size: 0.8rem; line-height: 1.1rem; opacity: .25; }
+
+			.bold {
+				font-weight: bold;
+			}
 		}
 	}
 }
@@ -43,5 +57,29 @@
 		transform: none;
 		padding: 0px;
 		margin: 5% 5% 0px 5%;
+
+
+		.center {
+			margin-top: 5%;
+		    text-align: center;
+		    li {
+				margin: 5px 0px 5px 0px;
+				line-height: 1.7rem;
+
+				&:nth-child(1){ font-size: 1.4rem; line-height: 1.8rem; }
+				&:nth-child(2){ font-size: 1.4rem; line-height: 1.8rem; opacity: .9; }
+				&:nth-child(3){ font-size: 1.4rem; line-height: 1.8rem; opacity: .75; }
+				&:nth-child(4){ font-size: 1.4rem; line-height: 1.8rem; opacity: .6; }
+				&:nth-child(5){ font-size: 1.4rem; line-height: 1.8rem; opacity: .55; }
+				&:nth-child(6){ font-size: 1.4rem; line-height: 1.8rem; opacity: .4; }
+				&:nth-child(7){ font-size: 1.4rem; line-height: 1.8rem; opacity: .4; }
+				&:nth-child(8){ font-size: 1.4rem; line-height: 1.8rem; opacity: .4; }
+				&:nth-child(9){ font-size: 1.4rem; line-height: 1.8rem; opacity: .4; }
+
+				.bold {
+					font-weight: bold;
+				}
+			}
+		}
 	}
 }

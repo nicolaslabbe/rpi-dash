@@ -6,6 +6,11 @@
 node_modules
 
 # PROJECT
-server/config/index.json
+config/index.json
 static/js/
 static/css/
+
+dist/
+
+#CONFIG
+client_secret.json

@@ -1,14 +1,27 @@
-import config from '../config'
+import config from 'config'
 import cron from 'node-cron'
+import clc from 'cli-color'
 
-import Train from './Train'
-import Pollution from './Pollution'
-import Weather from './Weather'
-import News from './News'
+import {
+	Train
+	,Pollution
+	,Weather
+	,News
+	,Gmail
+} from './'
 
 class Update {
 
 	constructor() {
+	}
+
+	updateGmail() {
+		Gmail.get()
+		.then((result) => {
+			Gmail.save(Gmail.parse(result))
+		},
+		(result) => {
+		})
 	}
 
 	updatePollution() {
@@ -49,10 +62,15 @@ class Update {
 
 	init() {
 		var p = new Promise((resolve) => {
+			this.updateGmail()
 			this.updatePollution()
 			this.updateTrain()
 			this.updateWeather()
 			this.updateNews()
+
+			cron.schedule(config.gmail.schedule, () => {
+				this.updateGmail()
+			})
 
 			cron.schedule(config.train.schedule, () => {
 				this.updateTrain()
@@ -72,4 +90,4 @@ class Update {
 	}
 }
 
-export default new Update()
+export default Update

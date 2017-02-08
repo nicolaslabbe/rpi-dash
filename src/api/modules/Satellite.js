@@ -1,5 +1,5 @@
-import config from '../config'
-import {Api} from '../classes'
+import config from 'config'
+import {Api} from '../../helper'
 
 let satellite = new Api()
 

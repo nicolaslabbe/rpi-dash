@@ -1,6 +1,7 @@
 import moment from 'moment'
-import config from '../config'
-import {Api} from '../classes'
+
+import config from 'config'
+import {Api} from '../../helper'
 
 let train = new Api()
 
@@ -35,7 +36,15 @@ train.get = function (token, stop_ids, date = new Date(), max = 100) {
 }
 
 train.parse = function (obj, directions = null) {
-	var json = []
+	var date = moment()
+	var json = {
+		results: [],
+		updatedAt: {
+			timestamp: date.format('x'),
+			date: date.format('MMMM Do YYYY, h:mm:ss a')
+		}
+	}
+
 	Array.prototype.forEach.call(obj, (item) => {
 		var station = {
 			departures: [],
@@ -67,9 +76,10 @@ train.parse = function (obj, directions = null) {
 			station = item
 		}
 
-		json.push(station)
+		json.results.push(station)
 	})
 
+	// return obj
 	return json
 }
 

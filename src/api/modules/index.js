@@ -4,6 +4,7 @@ import Satellite from './Satellite'
 import Train from './Train'
 import Update from './Update'
 import News from './News'
+import Gmail from './Gmail'
 
 export {
 	Weather
@@ -12,4 +13,5 @@ export {
 	,Train
 	,News
 	,Update
+	,Gmail
 }

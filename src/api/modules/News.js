@@ -1,6 +1,7 @@
-import config from '../config'
 import moment from 'moment'
-import {Api} from '../classes'
+
+import config from 'config'
+import {Api} from '../../helper'
 
 let news = new Api()
 
@@ -11,7 +12,14 @@ news.get = function (coordinate) {
 }
 
 news.parse = function (obj) {
-	var json = obj.result
+	var date = moment()
+	var json = {
+		results: obj.result.articles,
+		updatedAt: {
+			timestamp: date.format('x'),
+			date: date.format('MMMM Do YYYY, h:mm:ss a')
+		}
+	}
 	return json
 }
 

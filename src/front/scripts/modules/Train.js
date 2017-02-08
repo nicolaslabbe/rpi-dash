@@ -4,8 +4,10 @@ import cron from 'node-cron'
 class Train {
 
 	constructor(firebase) {
+		this.visible = true
 		this.transportWrapper = document.querySelector('[data-transport=true]')
 		this.wrapper = document.querySelector('[data-train-time=true]')
+		this.lastUpdateWrapper = this.transportWrapper.querySelector('[last-update="true"]')
 
 		if (firebase != null) {
 			this.db = firebase.database().ref('train/' + firebaseConfig.userId);
@@ -46,7 +48,8 @@ class Train {
 				if(diff < 10 && diff > 0) {
 					diff = `0${diff}`
 				}
-				timestamp.innerHTML = `${diff} min`
+				timestamp.innerHTML = time.format('hh:mm')
+				// timestamp.innerHTML = `${diff} min`
 			})
 		}
 	}
@@ -79,27 +82,20 @@ class Train {
 		var _directions = {}
 		var max = 3
 
-		Array.prototype.forEach.call(values, (val) => {
-				
-				var i = 0
-
+		Array.prototype.forEach.call(values.results, (val) => {
 				_directions[val.name] = {}
 
 				Array.prototype.forEach.call(val.departures, (t) => {
-				if(i < max) {
-
-					if (_directions[val.name][t.direction] == null) {
-						_directions[val.name][t.direction] = document.createElement('ul')
-					}
-
-					if (_directions[val.name][t.direction].childElementCount < max) {
-						var li = this.createTransport(t)
-
-						this._timestamps.push(li.querySelector('.span-time'))
-						_directions[val.name][t.direction].appendChild(li)
-					}
+				if (_directions[val.name][t.direction] == null) {
+					_directions[val.name][t.direction] = document.createElement('ul')
 				}
-				i++
+
+				if (_directions[val.name][t.direction].childElementCount < max) {
+					var li = this.createTransport(t)
+
+					this._timestamps.push(li.querySelector('.span-time'))
+					_directions[val.name][t.direction].appendChild(li)
+				}
 			})
 		})
 
@@ -113,6 +109,8 @@ class Train {
 				this.wrapper.appendChild(_directions[direction][ul])
 			})
 		})
+
+		this.lastUpdateWrapper.innerHTML = moment(parseInt(values.updatedAt.timestamp)).fromNow(true)
 
 		this.updateTime()
 	}

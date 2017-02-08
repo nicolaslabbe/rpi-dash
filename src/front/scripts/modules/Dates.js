@@ -4,6 +4,7 @@ import cron from 'node-cron'
 class Time {
 
 	constructor() {
+		this.visible = true
 		this.hours = document.querySelector('[data-hours=true]')
 		this.minutes = document.querySelector('[data-minutes=true]')
 		this.seconds = document.querySelector('[data-seconds=true]')

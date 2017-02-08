@@ -2,7 +2,7 @@ import moment from 'moment'
 import clc from 'cli-color'
 import * as firebase from 'firebase'
 
-import config from '../config'
+import config from 'config'
 
 
 class FirebaseHelper {
@@ -15,11 +15,9 @@ class FirebaseHelper {
 	}
 
 	set(id, obj) {
-		if(process.env.NODE_ENV != 'development') {
-			this.database.child(id).set(obj, (response) => {
-				console.log(clc.cyan(`${id}`), `updated at ${moment().format('MMMM Do YYYY, h:mm:ss a')}`)
-			})
-		}
+		this.database.child(id).set(obj, (response) => {
+			console.log(clc.cyan(`${id}`), `updated at ${moment().format('MMMM Do YYYY, h:mm:ss a')}`)
+		})
 	}
 
 	get(id) {

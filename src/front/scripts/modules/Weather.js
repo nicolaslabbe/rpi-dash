@@ -1,7 +1,11 @@
+import moment from 'moment'
+
 class Weather {
 
 	constructor(firebase) {
+		this.visible = true
 		this.wrapper = document.querySelector('[data-weather-wrapper="true"]')
+		this.lastUpdateWrapper = this.wrapper.querySelector('[last-update="true"]')
 		this.icon = document.querySelector('[data-weather-icon=true]')
 		this.temp = document.querySelector('[data-weather-temp=true]')
 
@@ -33,6 +37,8 @@ class Weather {
 		this.wrapper.classList.remove('error')
 		this.icon.className = `wi ${val.current.icon}`
 		this.temp.innerHTML = Math.round(val.current.temp)
+
+		this.lastUpdateWrapper.innerHTML = moment(parseInt(val.updatedAt.timestamp)).fromNow(true)
 	}
 
 	error() {

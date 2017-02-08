@@ -2,7 +2,7 @@ import Handlebars from 'handlebars'
 import moment from 'moment'
 import fs from 'fs'
 
-import config from '../config'
+import config from 'config'
 
 let route = (req, res) => {
 	var index = process.cwd() + '/static/views/index.html'

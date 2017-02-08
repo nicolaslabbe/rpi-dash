@@ -1,6 +1,7 @@
-import config from '../config'
 import moment from 'moment'
-import {Api} from '../classes'
+
+import config from 'config'
+import {Api} from '../../helper'
 
 let pollution = new Api()
 
@@ -11,8 +12,15 @@ pollution.get = function (coordinate) {
 }
 
 pollution.parse = function (obj) {
-	var json = obj.result
-	json.current = obj.result.data[0]
+	var date = moment()
+	var json = {
+		results: obj.result,
+		current: obj.result.data[0],
+		updatedAt: {
+			timestamp: date.format('x'),
+			date: date.format('MMMM Do YYYY, h:mm:ss a')
+		}
+	}
 	return json
 }
 
