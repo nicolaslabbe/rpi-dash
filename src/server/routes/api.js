@@ -1,6 +1,6 @@
 import clc from 'cli-color'
 
-import config from 'config'
+import config from '../config'
 import {firebaseHelper} from '../../helper'
 
 class Route {

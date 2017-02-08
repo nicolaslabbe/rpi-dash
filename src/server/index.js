@@ -4,7 +4,7 @@ import Handlebars from 'handlebars'
 import path from 'path'
 import clc from 'cli-color'
 
-import config from 'config'
+import config from './config/'
 
 import {
 	apiRoute

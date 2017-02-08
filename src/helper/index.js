@@ -1,7 +1,7 @@
 import Api from './Api'
-import firebaseHelper from './firebaseHelper'
+import FirebaseHelper from './FirebaseHelper'
 
 export {
 	Api
-	,firebaseHelper
+	,FirebaseHelper
 }

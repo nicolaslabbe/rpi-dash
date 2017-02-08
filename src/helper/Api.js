@@ -3,13 +3,10 @@ import https from 'https'
 import querystring from 'querystring'
 import clc from 'cli-color'
 
-import config from 'config'
-import {firebaseHelper} from './'
-
 class Api {
 
-	constructor() {
-
+	constructor(firebase) {
+		this.firebase = firebase
 	}
 
 	call(url, method = 'GET', headers = {}, body = {}) {
@@ -84,9 +81,13 @@ class Api {
 		return p
 	}
 
-	save (obj) {
-		firebaseHelper.set(`${this.id}/${config.firebase.userId}`, obj)
-		console.log(clc.cyan(`Update ${this.id} at ${new Date()}`))
+	get () {
+		return this.call(this.url)
+	}
+
+	save(obj) {
+	  this.firebase.set(`${this.id}/${this.userId}`, obj)
+	  console.log(clc.cyan(`Update ${this.id} at ${new Date()}`))
 	}
 }
 

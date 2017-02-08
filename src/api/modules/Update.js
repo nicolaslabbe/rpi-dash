@@ -1,6 +1,8 @@
-import config from 'config'
+import config from '../config'
 import cron from 'node-cron'
 import clc from 'cli-color'
+
+import {FirebaseHelper} from '../../helper'
 
 import {
 	Train
@@ -13,48 +15,54 @@ import {
 class Update {
 
 	constructor() {
+		this.firebase = new FirebaseHelper(config.firebase.config)
+		this.gmail = new Gmail(this.firebase)
+		this.weather = new Weather(this.firebase)
+		this.news = new News(this.firebase)
+		this.train = new Train(this.firebase)
+		this.pollution = new Pollution(this.firebase, config.weather.pollution)
 	}
 
 	updateGmail() {
-		Gmail.get()
+		this.gmail.get()
 		.then((result) => {
-			Gmail.save(Gmail.parse(result))
+			this.gmail.save(this.gmail.parse(result))
 		},
 		(result) => {
 		})
 	}
 
 	updatePollution() {
-		Pollution.get(config.weather.pollution)
+		this.pollution.get()
 		.then((result) => {
-			Pollution.save(Pollution.parse(result))
+			this.pollution.save(this.pollution.parse(result))
 		},
 		(result) => {
 		})
 	}
 
 	updateTrain() {
-		Train.get(config.train.token, config.train.stop_id)
+		this.train.get(config.train.token, config.train.stop_id)
 		.then((obj) => {
-			Train.save(Train.parse(obj, config.train.directions))
+			this.train.save(this.train.parse(obj, config.train.directions))
 		},
 		(result) => {
 		})
 	}
 
 	updateWeather() {
-		Weather.get()
+		this.weather.get()
 		.then((result) => {
-			Weather.save(Weather.parse(result))
+			this.weather.save(this.weather.parse(result))
 		},
 		(result) => {
 		})
 	}
 
 	updateNews() {
-		News.get()
+		this.news.get()
 		.then((result) => {
-			News.save(News.parse(result))
+			this.news.save(this.news.parse(result))
 		},
 		(result) => {
 		})
@@ -63,27 +71,27 @@ class Update {
 	init() {
 		var p = new Promise((resolve) => {
 			this.updateGmail()
-			this.updatePollution()
+			// this.updatePollution()
 			this.updateTrain()
 			this.updateWeather()
 			this.updateNews()
 
-			cron.schedule(config.gmail.schedule, () => {
-				this.updateGmail()
-			})
+			// cron.schedule(config.gmail.schedule, () => {
+			// 	this.updateGmail()
+			// })
 
-			cron.schedule(config.train.schedule, () => {
-				this.updateTrain()
-				this.updatePollution()
-			})
+			// cron.schedule(config.train.schedule, () => {
+			// 	this.updateTrain()
+			// 	this.updatePollution()
+			// })
 
-			cron.schedule(config.weather.schedule, () => {
-				this.updateWeather()
-			})
+			// cron.schedule(config.weather.schedule, () => {
+			// 	this.updateWeather()
+			// })
 
-			cron.schedule(config.news.schedule, () => {
-				this.updateNews()
-			})
+			// cron.schedule(config.news.schedule, () => {
+			// 	this.updateNews()
+			// })
 		})
 
 		return p

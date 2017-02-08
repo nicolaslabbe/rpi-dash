@@ -2,14 +2,11 @@ import moment from 'moment'
 import clc from 'cli-color'
 import * as firebase from 'firebase'
 
-import config from 'config'
-
-
 class FirebaseHelper {
-
-	constructor() {
+	
+	constructor(config) {
 		this.database = firebase  
-			.initializeApp(config.firebase.config)
+			.initializeApp(config)
 			.database()
 			.ref()
 	}
@@ -35,4 +32,4 @@ class FirebaseHelper {
 	}
 }
 
-export default new FirebaseHelper()
+export default FirebaseHelper
