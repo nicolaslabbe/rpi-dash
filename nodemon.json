@@ -2,8 +2,7 @@
   "verbose": true,
   "ignore": [
     "docs/*",
-    "src/front/*",
-    "src/front/scripts/modules/*",
+    "front/*",
     "static/*",
     "tasks/*"
   ],
