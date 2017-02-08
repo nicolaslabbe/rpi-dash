@@ -21,7 +21,7 @@
     "dev": "nodemon src/api/index.js & nodemon src/server/index.js & npm run watch",
     "build:front": "npm run green \"build:front\" && npm run compile:front && node ./tasks/sass.js",
     "build:back": "npm run green \"build:back\" && npm run mkdir && npm run compile:server && npm run compile:api",
-    "build:prod": "npm run build:front && npm run build:back",
+    "build": "npm run build:front && npm run build:back",
     "start": "NODE_ENV=production pm2 start dist/server/index.js -n rpid-server --watch && NODE_ENV=production pm2 start dist/api/index.js -n rpid-api --watch"
   },
   "repository": {

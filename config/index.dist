@@ -1,24 +1,60 @@
 {
 	"port": 8000,
+	"gmail": {
+		"schedule": "*/5 * * * *",
+		"installed": {
+			"client_id": "XXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com",
+			"project_id": "XXXXXXX",
+			"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+			"token_uri": "https://accounts.google.com/o/oauth2/token",
+			"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+			"client_secret": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+			"redirect_uris": [
+				"urn:ietf:wg:oauth:2.0:oob",
+				"http://localhost"
+			]
+		}
+	},
 	"weather": {
-		"token": "",
-		"city": "2988507"
+		"schedule": "*/5 * * * *",
+		"token": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+		"city": "2988507",
+		"pollution": "48.8135,1.2015"
+	},
+	"news": {
+		"schedule": "*/5 * * * *",
+		"token": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+		"sort": "latest",
+		"source": "time"
 	},
 	"beer": {
-		"token": "",
-		"url": "http://api.brewerydb.com/v2/?key="
-	},
-	"beer": {
-		"token": "",
+		"schedule": "*/5 * * * *",
+		"token": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
 		"url": "http://api.brewerydb.com/v2/?key="
 	},
 	"train": {
-		"token": "",
+		"schedule": "*/5 * * * *",
+		"token": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
 		"url": "https://api.sncf.com/v1/coverage/sncf/stop_areas/stop_area:OCE:SA:",
-		"stop_id": "87686006",
+		"stop_id": ["87686006", "87682153"],
 		"directions": [
 			"Goussainville (Goussainville)"
 			,"Melun (Melun)"
 		]
+	},
+	"traffic": {
+		"schedule": "*/5 * * * *",
+		"token": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+		"url": "https://api.sncf.com/v1/coverage/fr-idf/networks/network:RER/traffic_reports"
+	},
+	"firebase": {
+		"config": {
+			"apiKey": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+			"authDomain": "XXXXXX.firebaseapp.com",
+			"databaseURL": "https://XXXXXX.firebaseio.com",
+			"storageBucket": "XXXXXX.appspot.com",
+			"messagingSenderId": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+		},
+		"userId": "XXXXXXXXXXXXXXXXXXXXXXXXXXX"
 	}
 }
